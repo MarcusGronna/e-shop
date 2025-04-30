@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Trådlösa Hörlurar",
+      "description": "Högkvalitativa trådlösa hörlurar med brusreducering och lång batteritid.",
+      "price": 1299,
+      "image": "https://placehold.co/200x150"
+    },
+    {
+      "id": 2,
+      "name": "Smart Klocka",
+      "description": "En stilren smartklocka med pulsmätning och träningsspårning.",
+      "price": 899,
+      "image": "https://placehold.co/200x150"
+    },
+    {
+      "id": 3,
+      "name": "Bärbar Högtalare",
+      "description": "Kraftfull högtalare med Bluetooth och vattentålig design.",
+      "price": 499,
+      "image": "https://placehold.co/200x150"
+    },
+    {
+      "id": 4,
+      "name": "Ergonomiskt Tangentbord",
+      "description": "Bekvämt tangentbord för långa arbetsdagar med tyst mekanik.",
+      "price": 699,
+      "image": "https://placehold.co/200x150"
+    }
+  ]
