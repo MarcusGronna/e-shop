@@ -7,17 +7,7 @@
   
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row-reverse;
-  
-}
 
-li {
-  
-  padding: 1em;
-}
 
 a:-webkit-any-link {
   color: White;
