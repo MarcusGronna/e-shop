@@ -1,14 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import products from "../data/MockProducts.json";
+import { getAllProducts } from "../../services/productService";
 import { Button } from "@mui/material";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-
+  console.log(id);
   useEffect(() => {
-    const foundProduct = products.find((p) => p.id === parseInt(id));
+    getAllProducts().then(setProduct);
+    const foundProduct = product.find((p) => p.id === parseInt(id));
     setProduct(foundProduct);
   }, [id]);
 
