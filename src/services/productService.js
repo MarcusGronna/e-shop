@@ -1,5 +1,3 @@
-// import { useParams } from "react-router-dom";
-
 const BASE_URL = "https://dummyjson.com/products";
 
 // Asynkron funktion som hämtar produkter från dummyJson och returnerar produkterna som Json
@@ -26,7 +24,7 @@ export async function getAllProducts() {
 // Hämtar enskilda produkter baserat på ID
 export async function getProduct(id) {
   const url = BASE_URL;
-  // const {id} = useParams()
+
   // Retur av product
   try {
     const response = await fetch(`${url}/${id}`);

@@ -17,7 +17,7 @@ export default function ProductList() {
         {productList.map((product) => (
           <li key={product.id}>
             <img src={product.thumbnail} alt={product.title} />
-            <Link to="/product-detail/:id">
+            <Link to={`/product-detail/${product.id}`}>
               <button className="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
                 {product.title}
               </button>
