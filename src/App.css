@@ -10,7 +10,7 @@
 
 
 a:-webkit-any-link {
-  color: White;
-    cursor: pointer;
-    text-decoration: none;
+  /* color: White; */
+    /* cursor: pointer; */
+    /* text-decoration: none; */
 }
