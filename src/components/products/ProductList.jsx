@@ -4,10 +4,15 @@ import { getAllProducts } from "../../services/productService";
 import { AnimatePresence, motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 import ProductDetail from "./ProductDetail";
+import CloseButton from "../ui/CloseButton";
 
 export default function ProductList() {
   const [productList, setProductList] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const openProduct = (id) => {
+    const found = productList.find((p) => p.id === id);
+    setSelectedProduct(found);
+  };
 
   useEffect(() => {
     getAllProducts().then(setProductList);
@@ -20,7 +25,7 @@ export default function ProductList() {
       {/* Listar produktkort */}
       <ul className="grid grid-cols-2 gap-4">
         {productList.map((p) => (
-          <ProductCard key={p.id} product={p} onClick={() => setSelectedProduct(p)} />
+          <ProductCard key={p.id} product={p} onClick={() => openProduct(p.id)} />
         ))}
       </ul>
 
@@ -51,14 +56,9 @@ export default function ProductList() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                onClick={(e) => e.stopPropagation()} /* Hindra stäng-klick */
+                onClick={(e) => e.stopPropagation()} /* Hindra stäng-klick på kortet */
               >
-                <button
-                  className="absolute top-2 right-3 text-xl cursor-pointer"
-                  onClick={() => setSelectedProduct(null)}
-                >
-                  X
-                </button>
+                <CloseButton onClose={() => setSelectedProduct(null)} />
 
                 <ProductDetail product={selectedProduct} />
               </motion.div>
