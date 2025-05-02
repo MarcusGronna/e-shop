@@ -25,6 +25,9 @@ function cartReducer(state, action) {
     case "REMOVE":
       return state.filter((p) => p.id !== action.payload);
 
+    case "CLEAR":
+      return [];
+
     default:
       return state;
   }
@@ -38,12 +41,13 @@ export function CartProvider({ children }) {
   const increase = (id) => dispatch({ type: "INC", payload: id });
   const decrease = (id) => dispatch({ type: "DEC", payload: id });
   const remove = (id) => dispatch({ type: "REMOVE", payload: id });
+  const clear = () => dispatch({ type: "CLEAR" });
 
   //   Totalsumma
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   //   Paketera allt i ett value-objekt
-  const value = { cartItems, add, increase, decrease, remove, totalPrice };
+  const value = { cartItems, add, increase, decrease, remove, clear, totalPrice };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

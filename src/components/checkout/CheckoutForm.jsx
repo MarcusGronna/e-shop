@@ -5,9 +5,11 @@ import Input from "../ui/Input";
 import Select from "../ui/Select";
 import Textarea from "../ui/Textarea";
 import Button from "../ui/Button";
+import { useNavigate } from "react-router-dom";
 
-export default function CheckoutForm({ onSubmit }) {
-  const { cartItems, totalPrice } = useContext(CartContext);
+export default function CheckoutForm() {
+  const { cartItems, totalPrice, clear } = useContext(CartContext);
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -25,12 +27,25 @@ export default function CheckoutForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {}[("name", "email", "street", "zip", "city", "country")].forEach((f) => {
-      if (!data[f]) newErrors[f] = "Måste fyllas i";
+    const fieldsToValidate = ["name", "email", "street", "zip", "city", "country"];
+
+    const newErrors = {};
+
+    fieldsToValidate.forEach((field) => {
+      if (!data[field]?.trim()) {
+        newErrors[field] = "Måste fyllas i";
+      }
     });
-    setErrors(newErrors);
+
     if (Object.keys(newErrors).length === 0) {
-      onSubmit(data);
+      clear();
+      navigate("/confirmation", {
+        state: {
+          formData: data,
+          cartItems,
+          totalPrice,
+        },
+      });
     }
   };
 
