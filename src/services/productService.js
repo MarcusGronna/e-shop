@@ -28,11 +28,15 @@ export async function getProduct(id) {
   // Retur av product
   try {
     const response = await fetch(`${url}/${id}`);
+
     if (!response.ok) {
       throw new Error(`Hämtning misslyckades (${response.status})`);
     }
+
     const product = await response.json();
-    return product; // Returnerar produktobjekt
+
+    // Returnerar produktobjekt
+    return product;
   } catch (error) {
     console.error("getProduct", error.message);
     throw error;
