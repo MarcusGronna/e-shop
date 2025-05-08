@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Button({ text, to, onClick, type = "button" }) {
   const base =
-    "m-2 p-3 text-base font-medium text-white bg-gray-500 hover:bg-gray-400 rounded cursor-pointer";
+    "inline-block m-2 p-3 text-base font-medium text-white bg-gray-500 hover:bg-gray-400 rounded cursor-pointer";
 
   if (to) {
     return (

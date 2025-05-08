@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 
 function Home() {
@@ -7,7 +6,7 @@ function Home() {
       <div className="bg-amber-100 w-full h-full">
         <p>Hej</p>
 
-        <Button to="product-List" text={"Gå till produkter"} />
+        <Button to="/product-list" text={"Gå till produkter"} />
       </div>
     </>
   );

@@ -12,7 +12,8 @@ export default function OrderConfirmation() {
 
   useEffect(() => {
     clear();
-  }, [clear]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!formData || !cartItems) {
     return (
@@ -75,7 +76,7 @@ export default function OrderConfirmation() {
 
       {/* Footer-knapp */}
       <div className="bg-gray-50 p-6 text-center">
-        <Button to="/product-list" text={"Tillbaka till startsidan"} />
+        <Button to="/" text={"Tillbaka till startsidan"} />
       </div>
     </div>
   );
