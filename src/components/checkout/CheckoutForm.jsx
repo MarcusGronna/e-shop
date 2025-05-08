@@ -105,6 +105,7 @@ export default function CheckoutForm() {
             { value: "SE", label: "Sverige" },
             { value: "NO", label: "Norge" },
             { value: "FI", label: "Finland" },
+            { value: "TH", label: "Thailand" },
           ]}
           value={data.country}
           onChange={handleChange}
