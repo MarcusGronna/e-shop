@@ -7,12 +7,12 @@ import Button from "../ui/Button";
 
 import CloseButton from "../ui/CloseButton";
 
-export default function Cart({ isOpen, onClose }) {
+export default function Cart({ cartOpen, onClose }) {
   const { cartItems, totalPrice } = useContext(CartContext);
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {cartOpen && (
         <>
           {/* Overlay */}
           <motion.div
@@ -50,7 +50,7 @@ export default function Cart({ isOpen, onClose }) {
             {/* Footer */}
             <div className="border-t p-4">
               <p className="mb-4 text-right font-semibold">Totalt: {totalPrice.toFixed(2)} kr</p>
-              <Button to="checkout" text={"Till kassan"} />
+              <Button to="/checkout" text={"Till kassan"} onClick={onClose} />
             </div>
           </motion.aside>
         </>

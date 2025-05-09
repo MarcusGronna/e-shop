@@ -6,7 +6,7 @@ export default function Button({ text, to, onClick, type = "button" }) {
 
   if (to) {
     return (
-      <Link to={to} className={base}>
+      <Link to={to} className={base} onClick={onClick}>
         {text}
       </Link>
     );
