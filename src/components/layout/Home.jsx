@@ -1,15 +1,5 @@
-import Button from "../ui/Button";
+import Hero from "./Hero";
 
-function Home() {
-  return (
-    <>
-      <div className="bg-amber-100 w-full h-full">
-        <p>Hej</p>
-
-        <Button to="/product-list" text={"Gå till produkter"} />
-      </div>
-    </>
-  );
-}
+const Home = () => <Hero />;
 
 export default Home;
