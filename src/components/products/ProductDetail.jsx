@@ -33,7 +33,7 @@ export default function ProductDetail({ product }) {
         </p>
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="text-grey-600 underline underline-offset-2 text-sm"
+          className="text-grey-600 underline underline-offset-2 text-sm cursor-pointer"
         >
           {expanded ? "visa mindre" : "läs mer..."}
         </button>
