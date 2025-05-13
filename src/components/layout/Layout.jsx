@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import { Outlet } from "react-router-dom";
 import { HeaderContext } from "./HeaderContext";
+import Footer from "./Footer";
 
 export default function Layout() {
   const headerRef = useRef(null);
@@ -42,6 +43,7 @@ export default function Layout() {
       <main className="px-1.5">
         <Outlet />
       </main>
+      <Footer />
     </HeaderContext.Provider>
   );
 }
