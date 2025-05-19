@@ -33,17 +33,19 @@ export default function Layout() {
 
   return (
     <HeaderContext.Provider value={{ forceTop, setForceTop }}>
-      {/* mt-4 när HÖGST UPP & ej modal. Annars 0 */}
-      <NavBar
-        ref={headerRef}
-        className={`sticky top-0 z-20 bg-white shadow-md transition-all duration-200 ${
-          !scrolled && !forceTop ? "mt-4" : "mt-0"
-        }`}
-      />
-      <main className="px-1.5">
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+        {/* mt-4 när HÖGST UPP & ej modal. Annars 0 */}
+        <NavBar
+          ref={headerRef}
+          className={`sticky top-0 z-20 bg-white shadow-md transition-all duration-200 ${
+            !scrolled && !forceTop ? "mt-4" : "mt-0"
+          }`}
+        />
+        <main className="flex-1 px-1.5">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </HeaderContext.Provider>
   );
 }

@@ -11,7 +11,7 @@ const socialIcons = [
 ];
 
 const Footer = () => (
-  <footer className="bg-gray-900 text-gray-100">
+  <footer className="bg-gray-900 text-gray-100 ">
     <div
       className="
     grid grid-cols-1 sm:grid-cols-3  
