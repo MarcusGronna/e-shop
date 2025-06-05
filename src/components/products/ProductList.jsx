@@ -46,24 +46,20 @@ export default function ProductList() {
         </ul>
       </div>
 
-      {/* Modal Overlay - Öppnar kort och visar detaljsidan */}
+      {/*------------------- Modal Overlay - Öppnar kort och visar detaljsidan ---------------------*/}
       <AnimatePresence>
         {selectedProduct && (
           <>
-            {/* Overlay med blur */}
+            {/*------- Overlay med blur -------*/}
             <motion.div
               key="overlay"
-              // style={{
-              //   top: "var(--header-h)",
-              //   height: "calc(100dvh - var(--header-h))",
-              // }}
               className="fixed inset-0 bg-black/50 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             />
 
-            {/* Container för kort */}
+            {/*------- Container för kort -------*/}
             <motion.div
               key="modal"
               style={{

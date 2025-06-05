@@ -12,8 +12,9 @@ const NavBar = forwardRef(({ className }, ref) => {
   const [cartOpen, setCartOpen] = useState(false); // För kundkorg
 
   return (
-    // Sticky
+    // Sticky - Från props/className > Layout.jsx
     <header ref={ref} className={className}>
+      {/* Wrapper för att kunna dela in navbar i columner. Främst för att få länkarna centrerade */}
       <div className="mx-auto grid grid-cols-3 max-w-7xl items-center px-4 py-2 md:py-3">
         {/* -------------- Vänster: logga och titel -------------- */}
         <Link to="/" className="text-xl font-bold text-orange-600 justify-self-start">
@@ -32,8 +33,10 @@ const NavBar = forwardRef(({ className }, ref) => {
             Kassa
           </Link>
         </nav>
+
         {/* --------------- Hamburgare för mobil -------------------- */}
         <button
+          // Toggle för meny öppen/stängd
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-gray-700 hover:text-gray-900 cursor-pointer justify-self-center"
           aria-label="Meny"
@@ -42,6 +45,7 @@ const NavBar = forwardRef(({ className }, ref) => {
           <span></span>
         </button>
 
+        {/* Wrapper för att kunna lägga röd counter på kundvagn med absolut positionering */}
         <div className=" pr-3 justify-self-end">
           {/* ------------ Höger: Kundvagn ---------------- */}
           <button
@@ -54,6 +58,7 @@ const NavBar = forwardRef(({ className }, ref) => {
           >
             <FontAwesomeIcon icon={faShoppingCart} size="xl" />
             {cartItems.length > 0 && (
+              // Röd counter
               <span className="absolute -right-2 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white ">
                 {cartItems.length}
               </span>
@@ -62,6 +67,7 @@ const NavBar = forwardRef(({ className }, ref) => {
         </div>
       </div>
       {/* -------------------- Mobil-dropdown --------------------- */}
+      {/* Om den är öppen visas länkar och vid onClick() på länk stängs menyn */}
       {menuOpen && (
         <nav className="md:hidden flex flex-col gap-2 bg-white px-4 shadow">
           <Link to="/" className="navlink" onClick={() => setMenuOpen(false)}>
@@ -75,6 +81,7 @@ const NavBar = forwardRef(({ className }, ref) => {
           </Link>
         </nav>
       )}
+      {/* onClose() för toggle för kundkorg öppen/stängd */}
       <Cart cartOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
