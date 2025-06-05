@@ -44,7 +44,7 @@ export default function Layout() {
         <main className="flex-1 px-1.5">
           <Outlet />
         </main>
-        <Footer />
+        <Footer className={"bottom-0"} />
       </div>
     </HeaderContext.Provider>
   );
