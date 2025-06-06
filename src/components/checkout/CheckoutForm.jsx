@@ -19,7 +19,6 @@ export default function CheckoutForm() {
     comment: "",
     country: "",
   });
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -58,7 +57,6 @@ export default function CheckoutForm() {
           value={data.name}
           onChange={handleChange}
           required
-          error={errors.name}
         />
         <Input
           label="E-postadress"
@@ -67,7 +65,6 @@ export default function CheckoutForm() {
           value={data.email}
           onChange={handleChange}
           required
-          error={errors.email}
         />
       </Fieldset>
 
@@ -78,25 +75,10 @@ export default function CheckoutForm() {
           value={data.street}
           onChange={handleChange}
           required
-          error={errors.street}
         />
         <div className="grid grid-cols-2 gap-4">
-          <Input
-            label="Postnummer"
-            name="zip"
-            value={data.zip}
-            onChange={handleChange}
-            required
-            error={errors.zip}
-          />
-          <Input
-            label="Ort"
-            name="city"
-            value={data.city}
-            onChange={handleChange}
-            required
-            error={errors.city}
-          />
+          <Input label="Postnummer" name="zip" value={data.zip} onChange={handleChange} required />
+          <Input label="Ort" name="city" value={data.city} onChange={handleChange} required />
         </div>
         <Select
           label="Land"
@@ -110,7 +92,6 @@ export default function CheckoutForm() {
           value={data.country}
           onChange={handleChange}
           required
-          error={errors.country}
         />
       </Fieldset>
 

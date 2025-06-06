@@ -46,9 +46,6 @@ export function CartProvider({ children }) {
   //   Totalsumma
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // Totala antalet artiklar
-  // const totalItems = cartItems.reduce((qnt, item) => qnt * item.quantity, 0);
-
   //   Paketera allt i ett value-objekt
   const value = { cartItems, add, increase, decrease, remove, clear, totalPrice };
 
