@@ -1,4 +1,40 @@
 
+/* === Scrollbar styling =================================== */
+
+/* Färger  */
+:root {
+  --scroll-track: gold;  /* gray-300  */
+  --scroll-thumb: #f59e0b;  /* amber-500 */
+}
+
+html {
+  scrollbar-width: thin;                                      /* "auto"|"thin" */
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);   /* thumb track   */
+}
+
+/* ---------- Chrome / Edge / Safari ------------------------ */
+/* Själva "spåret" */
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;         
+}
+
+/* Bakgrunden på spåret */
+html::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+/* Själva "thumb" (draghandtaget) */
+html::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 9999px;  /* max rundning */
+}
+
+/* Hover-färg (lite mörkare) */
+html::-webkit-scrollbar-thumb:hover {
+  background: #d97706;    /* amber-600 */
+}
+
 
 
 #root {
@@ -6,5 +42,6 @@
   margin: 0 auto;
   padding: 0 2rem;
   text-align: center;
+
 }
 

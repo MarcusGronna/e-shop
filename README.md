@@ -37,10 +37,9 @@ Projektet uppfyller samtliga funktions- och teknik­krav i uppgifts­beskrivning
 | **/ (Home)**      | kort välkomst-/hero-sektion                             |
 | **/product-list** | grid-lista från `https://dummyjson.com/products`        |
 | **/products/:id** | produktsida med bild, pris, beskrivning + “lägg i korg” |
-| **Cart Drawer**   | öka/minska/ta bort artiklar, totalsumma i realtid       |
+| **Cart**          | öka/minska/ta bort artiklar, totalsumma i realtid       |
 | **/checkout**     | kontakt- & leverans­uppgifter, summering, validering    |
 | **/confirmation** | order­kvittens, rensar kundvagn                         |
-| **Persistens**    | kundvagnen sparas i `localStorage`                      |
 
 ---
 

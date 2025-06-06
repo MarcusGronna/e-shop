@@ -1,5 +1,5 @@
 import { HeaderContext } from "../layout/HeaderContext";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/productService";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,26 +14,22 @@ export default function ProductList() {
     const found = productList.find((p) => p.id === id);
     setSelectedProduct(found);
   };
-  const { setForceTop } = useContext(HeaderContext);
+  // const { setForceTop } = useContext(HeaderContext);
 
   // Stänger scroll + tvingar header
-  useEffect(() => {
-    if (selectedProduct) {
-      document.body.style.overflow = "hidden";
-      setForceTop(true); // header mt-0
-    } else {
-      document.body.style.overflow = "";
-      setForceTop(false); // låter scroll-logiken styra
-    }
-  }, [selectedProduct, setForceTop]);
+  // useEffect(() => {
+  //   if (selectedProduct) {
+  //     document.body.style.overflow = "hidden";
+  //     setForceTop(true); // header mt-0
+  //   } else {
+  //     document.body.style.overflow = "";
+  //     setForceTop(false); // låter scroll-logiken styra
+  //   }
+  // }, [selectedProduct, setForceTop]);
 
   useEffect(() => {
     getAllProducts().then(setProductList);
   }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = selectedProduct ? "hidden" : "";
-  }, [selectedProduct]);
 
   return (
     <>
@@ -80,6 +76,7 @@ export default function ProductList() {
                 overflow-y-auto  /* scrolla INSIDE kortet om det blir trångt */
                 p-6 rounded-xl shadow-lg
                 flex flex-col relative
+                
                 "
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
