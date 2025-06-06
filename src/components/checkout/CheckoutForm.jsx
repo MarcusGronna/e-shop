@@ -50,7 +50,7 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto pb-10">
       <Fieldset legend="Kontaktuppgifter">
         <Input
           label="Fullständigt namn"

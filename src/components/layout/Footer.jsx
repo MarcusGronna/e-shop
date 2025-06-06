@@ -11,7 +11,7 @@ const socialIcons = [
 ];
 
 const Footer = () => (
-  <footer className="bg-gray-900 text-gray-100 ">
+  <footer className="bg-gray-900 text-gray-100 pb-60 sm:pb-1">
     <div
       className="
     grid grid-cols-1 sm:grid-cols-3  
@@ -19,16 +19,18 @@ const Footer = () => (
     "
     >
       {/* Kontakt  */}
-      <address className="not-italic space-y-2">
-        <h2 className="font-semibold text-lg mb-1 flex">Kontakta oss</h2>
-        <p className="flex items-center gap-2">
+      <address className="not-italic space-y-2 ">
+        <h2 className="font-semibold text-lg mb-1 flex justify-center sm:justify-start">
+          Kontakta oss
+        </h2>
+        <p className="flex items-center gap-2 justify-center sm:justify-start">
           <FontAwesomeIcon icon={faMapMarkerAlt} /> Sollentuna, Sverige
         </p>
-        <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2 justify-center sm:justify-start">
           <FontAwesomeIcon icon={faPhoneAlt} />
           +46&nbsp;730&nbsp;00&nbsp;00
         </p>
-        <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2 sm:justify-start justify-center ">
           <FontAwesomeIcon icon={faEnvelope} />
           <a href="#" className="hover:underline">
             mailMe@email.com

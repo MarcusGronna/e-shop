@@ -3,7 +3,6 @@ import "./App.css";
 import ProductList from "./components/products/ProductList";
 import ProductDetail from "./components/products/ProductDetail";
 import Cart from "./components/cart/Cart";
-// import NavBar from "./components/layout/NavBar";
 import Home from "./components/layout/Home";
 import Checkout from "./components/checkout/Checkout";
 import OrderConfirmation from "./components/checkout/OrderConfirmation";
