@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const base = "hover:underline focus-visible:unerline";
 const socialIcons = [
-  { icon: faFacebookF, link: "#" },
-  { icon: faInstagram, link: "#" },
-  { icon: faTwitter, link: "#" },
+  { icon: faFacebookF, link: "https://facebook.com" },
+  { icon: faInstagram, link: "https://instagram.com" },
+  { icon: faTwitter, link: "https://twitter.com" },
 ];
 
 const Footer = () => (
