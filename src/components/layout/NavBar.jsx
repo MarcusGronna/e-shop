@@ -10,6 +10,7 @@ const NavBar = forwardRef(({ className }, ref) => {
   const { cartItems } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false); // För mobilmeny
   const [cartOpen, setCartOpen] = useState(false); // För kundkorg
+  const totalItems = cartItems.map((item) => item.quantity);
 
   return (
     // Sticky - Från props/className > Layout.jsx
@@ -60,7 +61,7 @@ const NavBar = forwardRef(({ className }, ref) => {
             {cartItems.length > 0 && (
               // Röd counter
               <span className="absolute -right-2 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white ">
-                {cartItems.length}
+                {totalItems.reduce((accumulator, currentValue) => accumulator + currentValue)}
               </span>
             )}
           </button>
