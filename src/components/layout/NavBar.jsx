@@ -10,7 +10,9 @@ const NavBar = forwardRef(({ className }, ref) => {
   const { cartItems } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false); // För mobilmeny
   const [cartOpen, setCartOpen] = useState(false); // För kundkorg
-  const totalItems = cartItems.map((item) => item.quantity);
+
+  // Summera antal artiklar
+  const totalItems = cartItems.reduce((sum, { quantity }) => sum + quantity, 0);
 
   return (
     // Sticky - Från props/className > Layout.jsx
@@ -35,7 +37,7 @@ const NavBar = forwardRef(({ className }, ref) => {
           </Link>
         </nav>
 
-        {/* --------------- Hamburgare för mobil -------------------- */}
+        {/* --------------- Hamburgare för mobil - visa bara < md -------------------- */}
         <button
           // Toggle för meny öppen/stängd
           onClick={() => setMenuOpen(!menuOpen)}
@@ -43,7 +45,6 @@ const NavBar = forwardRef(({ className }, ref) => {
           aria-label="Meny"
         >
           <FontAwesomeIcon icon={faBars} size="xl" />
-          <span></span>
         </button>
 
         {/* Wrapper för att kunna lägga röd counter på kundvagn med absolut positionering */}
@@ -61,7 +62,7 @@ const NavBar = forwardRef(({ className }, ref) => {
             {cartItems.length > 0 && (
               // Röd counter
               <span className="absolute -right-2 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white ">
-                {totalItems.reduce((accumulator, currentValue) => accumulator + currentValue)}
+                {totalItems}
               </span>
             )}
           </button>

@@ -6,29 +6,27 @@ import Footer from "./Footer";
 
 export default function Layout() {
   const headerRef = useRef(null);
-  const [headerH, setHeaderH] = useState(0);
   const [forceTop, setForceTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   //   Publicera höjden som CSS-variabel
   useLayoutEffect(() => {
-    const sync = () => {
+    const updateHeaderHeight = () => {
       const h = headerRef.current?.offsetHeight ?? 0;
-      setHeaderH(h);
       document.documentElement.style.setProperty("--header-h", `${h}px`);
     };
-    sync();
-    const ro = new ResizeObserver(sync);
+    updateHeaderHeight();
+    const ro = new ResizeObserver(updateHeaderHeight);
     headerRef.current && ro.observe(headerRef.current);
     return () => ro.disconnect();
   }, []);
 
   //   Spåra scrollposition
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -44,7 +42,7 @@ export default function Layout() {
         <main className="flex-1 px-1.5">
           <Outlet />
         </main>
-        <Footer />
+        <Footer className={"bottom-0"} />
       </div>
     </HeaderContext.Provider>
   );
