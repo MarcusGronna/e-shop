@@ -13,7 +13,7 @@ export default function CartItem({ item }) {
       {/* Titel och Pris */}
       <div className="flex-1">
         <p className="font-medium text-sm">{item.title}</p>
-        <p className="text-xs text-gray-500">{item.price} kr/st</p>
+        <p className="text-xs text-gray-500">{item.price.toFixed(2)} kr/st</p>
       </div>
       {/* Kvantitetskontroller  */}
       <div>
@@ -33,7 +33,7 @@ export default function CartItem({ item }) {
       </button>
       {/* Rad-summa & ta bort */}
       <div className="flex flex-col items-end gap-1">
-        <p className="text-sm font-semibold">{item.price * item.quantity} kr</p>
+        <p className="text-sm font-semibold">{(item.price * item.quantity).toFixed(2)} kr</p>
         <button
           onClick={() => remove(item.id)}
           className="text-gray-400 hover:text-red-600 cursor-pointer"
