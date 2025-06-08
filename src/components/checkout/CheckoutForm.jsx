@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function CheckoutForm() {
   const { cartItems, totalPrice, clear } = useContext(CartContext);
   const navigate = useNavigate();
+  const [errors, setErrors] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -22,12 +23,12 @@ export default function CheckoutForm() {
 
   const handleChange = (e) => {
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const fieldsToValidate = ["name", "email", "street", "zip", "city", "country"];
-
     const newErrors = {};
 
     fieldsToValidate.forEach((field) => {
@@ -35,6 +36,8 @@ export default function CheckoutForm() {
         newErrors[field] = "Måste fyllas i";
       }
     });
+
+    setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       clear();
@@ -49,7 +52,7 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto pb-10">
+    <form onSubmit={handleSubmit} noValidate className="max-w-2xl mx-auto pb-10">
       <Fieldset legend="Kontaktuppgifter">
         <Input
           label="Fullständigt namn"
@@ -57,6 +60,7 @@ export default function CheckoutForm() {
           value={data.name}
           onChange={handleChange}
           required
+          error={errors.name}
         />
         <Input
           label="E-postadress"
@@ -65,6 +69,7 @@ export default function CheckoutForm() {
           value={data.email}
           onChange={handleChange}
           required
+          error={errors.email}
         />
       </Fieldset>
 
@@ -75,10 +80,25 @@ export default function CheckoutForm() {
           value={data.street}
           onChange={handleChange}
           required
+          error={errors.street}
         />
         <div className="grid grid-cols-2 gap-4">
-          <Input label="Postnummer" name="zip" value={data.zip} onChange={handleChange} required />
-          <Input label="Ort" name="city" value={data.city} onChange={handleChange} required />
+          <Input
+            label="Postnummer"
+            name="zip"
+            value={data.zip}
+            onChange={handleChange}
+            required
+            error={errors.zip}
+          />
+          <Input
+            label="Ort"
+            name="city"
+            value={data.city}
+            onChange={handleChange}
+            required
+            error={errors.city}
+          />
         </div>
         <Select
           label="Land"
@@ -92,6 +112,7 @@ export default function CheckoutForm() {
           value={data.country}
           onChange={handleChange}
           required
+          error={errors.country}
         />
       </Fieldset>
 

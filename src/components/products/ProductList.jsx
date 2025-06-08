@@ -1,5 +1,6 @@
-import { HeaderContext } from "../layout/HeaderContext";
-import { useEffect, useState } from "react";
+import { HeaderContext } from "../context/HeaderContext";
+// eslint-disable-next-line no-unused-vars
+import { useEffect, useState, useContext } from "react";
 import { getAllProducts } from "../../services/productService";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
@@ -30,6 +31,7 @@ export default function ProductList() {
   useEffect(() => {
     getAllProducts().then(setProductList);
   }, []);
+  console.log(productList);
 
   return (
     <>

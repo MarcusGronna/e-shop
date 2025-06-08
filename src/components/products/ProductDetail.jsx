@@ -8,7 +8,7 @@ export default function ProductDetail({ product }) {
 
   return (
     <div className="flex flex-col">
-      <h2 className="sticky z-10 top-0 backdrop-blur font-bold text-center text-[clamp(1rem,4vw,1.5rem)]">
+      <h2 className="sticky z-10 top-0 backdrop-blur font-bold text-center text-[clamp(1rem,4vw,1.5rem)] font-nav">
         {product.title}
       </h2>
 
@@ -26,7 +26,7 @@ export default function ProductDetail({ product }) {
         <p
           className={`
         text-center text-[clamp(0.875rem,2.8vw,1rem)] mt-2 
-        ${expanded ? "" : "line-clamp-1"}
+        ${expanded ? "" : "line-clamp-1"} font-body
         `}
         >
           {product.description}

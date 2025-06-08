@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import { Outlet } from "react-router-dom";
-import { HeaderContext } from "./HeaderContext";
+import { HeaderContext } from "../context/HeaderContext";
 import Footer from "./Footer";
 
 export default function Layout() {

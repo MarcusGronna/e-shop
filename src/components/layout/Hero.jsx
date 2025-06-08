@@ -5,14 +5,14 @@ const Hero = () => (
   <section
     className="
     flex items-center justify-center relative 
-    w-full h-[45vh] md:h-[55vh] 
+    w-full h-[45vh] md:h-[70vh] 
     bg-cover bg-center 
     isolate
     "
     style={{ backgroundImage: `url(${heroBg})` }}
   >
     <div className="text-center space-y-6">
-      <h1 className="text-3xl md:text-4xl font-extrabold drop-shadow ">
+      <h1 className="text-3xl md:text-4xl font-extrabold drop-shadow font-body">
         Upptäck vårens favoriter!
       </h1>
       <Link
@@ -41,7 +41,7 @@ const Hero = () => (
         before:transition-transform before:duration-700
         "
         />
-        <span className="relative z-10">Shoppa&nbsp;nu!</span>
+        <span className="relative z-10">Shoppa nu!</span>
       </Link>
     </div>
   </section>

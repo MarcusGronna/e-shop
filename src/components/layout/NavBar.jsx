@@ -25,7 +25,7 @@ const NavBar = forwardRef(({ className }, ref) => {
         </Link>
 
         {/* ---------- Mitten: desktop-länkar (dolda under md) -------------- */}
-        <nav className="hidden md:flex justify-self-center gap-8">
+        <nav className="hidden md:flex justify-self-center gap-8 font-nav">
           <Link to="/" className="navLink">
             Hem
           </Link>
